@@ -19,3 +19,8 @@ const span = document.getElementsByClassName("close")[0];
 span.onclick = function() {
     modal.style.display = "none";
 }
+
+import { AssetTree } from './AssetTree';
+
+let assetTree = new AssetTree(10,10);
+console.log(assetTree.getValues);
