@@ -21,6 +21,7 @@ span.onclick = function() {
 }
 
 import { AssetTree } from './AssetTree';
+import { goToGallery } from './goToGallery';
 
 let assetTree = new AssetTree(10,10);
 console.log(assetTree.getValues);
