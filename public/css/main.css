@@ -1,8 +1,8 @@
-html{
+html {
     font-size: 1.2rem;
 }
 
-body{
+body {
     font-family: sans-serif;
     margin-left: 12rem;
     margin-right: 12rem;
@@ -68,6 +68,22 @@ ul.breadcrumb li a:hover {
 .tile:nth-child(5) {
     grid-column: span 3;
 }
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+}
+  
+.pagination a.active {
+    background-color: dodgerblue;
+    color: white;
+}
+  
+.pagination a:hover:not(.active) {background-color: #ddd;}
+
 @media screen and (max-width: 650px) {
     .container{
         display: block;
@@ -75,4 +91,34 @@ ul.breadcrumb li a:hover {
     .tile{
         margin-bottom: 1rem;
     }
+}
+
+
+
+.column-1 {
+    grid-column: span 1;
+}
+
+.column-2 {
+    grid-column: span 2;
+}
+
+.column-3 {
+    grid-column: span 3;
+}
+
+.column-4 {
+    grid-column: span 4;
+}
+
+.column-5 {
+    grid-column: span 5;
+}
+
+.column-6 {
+    grid-column: span 6;
+}
+
+.row {
+    grid-row: span;
 }
