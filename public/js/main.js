@@ -1,13 +1,12 @@
-// Get the modal
 const modal = document.getElementById("myModal");
+const imageElements = document.getElementsByClassName("tile__image");
+for(let i=0; i<imageElements.length; i++) {
+    let currentImage = imageElements[i];
 
-// Get the image and insert it inside the modal - use its "alt" text as a caption
-const img = document.getElementById("myImg");
-if (img) {
     const modalImg = document.getElementById("img01");
     const captionText = document.getElementById("caption");
 
-    img.onclick = function(){
+    currentImage.onclick = function(){
         modal.style.display = "block";
         modalImg.src = this.src;
         captionText.innerHTML = this.alt;
@@ -23,6 +22,14 @@ if (span) {
     }
 }
 
-function goToGallery(){
-    location.href='gallery.html';
+function goToGallery(path){
+    location.href = path;
 }
+
+// 
+(function(){
+    // all your code here
+    var foo = function() {};
+    window.onload = foo;
+    // ...
+})();
