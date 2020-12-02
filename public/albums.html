@@ -4,6 +4,15 @@
     <link rel="stylesheet" href="css/card.css"/>
     <link rel="stylesheet" href="css/main.css"/>
     <link rel="stylesheet" href="css/modal.css"/>
+    <style>
+      .footer {
+        /* position: fixed; */
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+      }
+    </style>
   </head>
   <body>
     <ul class="breadcrumb">
@@ -17,15 +26,22 @@
           <img src="./img/root/nature/cover.jpg" alt="Denim Jeans" style="width:100%">
           <h1>Nature Album</h1>
           <p class="card__text">Contains a few nice picture about nature. This text will contains a fixed length and some description about the album it self.</p>
-          <p><button OnClick="goToGallery()">Open</button></p>
+          <p><button OnClick="goToGallery('./albums/nature/1.html')">Open</button></p>
         </div>
       </div>
       <div class="column-2">
         <div class="card">
-          <img src="./img/root/nature-2/cover.jpg" alt="Denim Jeans" style="width:100%">
+          <img src="./img/root/trees/cover.jpg" alt="Denim Jeans" style="width:100%">
           <h1>Fixed length</h1>
           <p class="card__text">Contains a few nice picture about nature. This text will contains a fixed length and some description about the album it self.</p>
-          <p><button OnClick="goToGallery()">Open</button></p>
+          <p><button OnClick="goToGallery('./albums/trees/1.html')">Open</button></p>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="column-6">
+        <div class="footer">
+          <p>Copyright 2020 by <a href="https://www.zsurzsalaszlo.com/">Laszlo-Andras Zsurzsa</a>. All Rights Reserved.</p>
         </div>
       </div>
     </div>
