@@ -7,6 +7,7 @@ for(let i=0; i<imageElements.length; i++) {
     const captionText = document.getElementById("caption");
 
     currentImage.onclick = function(){
+        application.log('Modal click: ' + this.src);
         modal.style.display = "block";
         modalImg.src = this.src;
         captionText.innerHTML = this.alt;
@@ -22,14 +23,6 @@ if (span) {
     }
 }
 
-function goToGallery(path){
+function goToGallery(path) {
     location.href = path;
 }
-
-// 
-(function(){
-    // all your code here
-    var foo = function() {};
-    window.onload = foo;
-    // ...
-})();
