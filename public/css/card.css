@@ -24,4 +24,8 @@
 
 .card button:hover {
     opacity: 0.7;
-}  
+}
+
+.card img {
+    width: 100%;
+}

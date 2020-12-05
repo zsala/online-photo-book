@@ -6,4 +6,4 @@
 - lazy loading for images
 - cleanup the css
 - generate static html for different galleries
-- generate other static html (gallery structure)
+- pagination arrows are not working yets

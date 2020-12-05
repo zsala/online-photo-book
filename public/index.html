@@ -4,6 +4,11 @@
     <link rel="stylesheet" href="css/card.css"/>
     <link rel="stylesheet" href="css/main.css"/>
     <link rel="stylesheet" href="css/modal.css"/>
+    <link rel="stylesheet" href="css/breadcrumb.css"/>
+    <link rel="stylesheet" href="css/pagination.css"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <title>Albums</title>
     <style>
       .footer {
         /* position: fixed; */
@@ -17,27 +22,27 @@
   <body>
     <ul class="breadcrumb">
       <li><a href="#">Home</a></li>
-      <li>Albums</li>
     </ul>
 
     <div class="container">
-      <div class="column-2">
+      <div class="column-1">
         <div class="card">
-          <img src="./img/root/nature/cover.jpg" alt="Denim Jeans" style="width:100%">
-          <h1>Nature Album</h1>
-          <p class="card__text">Contains a few nice picture about nature. This text will contains a fixed length and some description about the album it self.</p>
+          <img src="./img/root/nature/cover.jpg" alt="Denim Jeans">
+          <h1>Nature</h1>
+          <p class="card__text">Contains a multiple nice picture about nature. </p>
           <p><button OnClick="goToGallery('./albums/nature/1.html')">Open</button></p>
         </div>
       </div>
-      <div class="column-2">
+      <div class="column-1">
         <div class="card">
-          <img src="./img/root/trees/cover.jpg" alt="Denim Jeans" style="width:100%">
-          <h1>Fixed length</h1>
-          <p class="card__text">Contains a few nice picture about nature. This text will contains a fixed length and some description about the album it self.</p>
+          <img src="./img/root/trees/cover.jpg" alt="Denim Jeans">
+          <h1>Trees</h1>
+          <p class="card__text">A collection of images around the topic of trees.</p>
           <p><button OnClick="goToGallery('./albums/trees/1.html')">Open</button></p>
         </div>
       </div>
     </div>
+
     <div class="container">
       <div class="column-6">
         <div class="footer">
