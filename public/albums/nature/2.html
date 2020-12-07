@@ -33,11 +33,11 @@
                 <img class="tile__image" src="../../img/root/nature/10.jpg" alt="">
             </div>
 
-            <div class="pagination column-4">
-                <a href="#">&laquo;</a>
+            <div class="pagination column-4" data-index="2" data-min="1" data-max="2">
+                <a class="pagination__prev" onclick='application.pagination.previous()' href="#">&laquo;</a>
                 <a href="1.html">1</a>
                 <a class="active" href="2.html">2</a>
-                <a href="#">&raquo;</a>
+                <a class="pagination__next" onclick='application.pagination.next()' href="#">&raquo;</a>
             </div>
 
             <div class="column-6">
@@ -68,5 +68,6 @@
     <script src="../../js/main.js"></script>
     <script src="../../js/core.js"></script>
 	<script src="../../js/settings.js"></script>
-	<script src="../../js/utilities.js"></script>
+    <script src="../../js/utilities.js"></script>
+    <script src="../../js/pagination.js"></script>
 </html>
