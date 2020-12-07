@@ -7,8 +7,8 @@
 }
   
 .pagination a.active {
-    background-color: dodgerblue;
+    background-color: var(--color-high);
     color: white;
 }
   
-.pagination a:hover:not(.active) {background-color: #ddd;}
+.pagination a:hover:not(.active) {background-color: var(--color-mid);}
