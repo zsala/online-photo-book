@@ -4,6 +4,7 @@
     margin: auto;
     text-align: center;
     font-family: arial;
+    background-color: white;
 }
 
 .card .card__text {
@@ -15,7 +16,7 @@
     outline: 0;
     padding: 12px;
     color: white;
-    background-color: rgb(0, 0, 0);
+    background-color: var(--text);
     text-align: center;
     cursor: pointer;
     width: 100%;
