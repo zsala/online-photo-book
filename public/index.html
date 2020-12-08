@@ -5,52 +5,50 @@
     <link rel="stylesheet" href="css/main.css"/>
     <link rel="stylesheet" href="css/modal.css"/>
     <link rel="stylesheet" href="css/breadcrumb.css"/>
+    <link rel="stylesheet" href="css/footer.css"/>
     <link rel="stylesheet" href="css/pagination.css"/>
     <link rel="stylesheet" href="css/color-themes/sky.css"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-    <title>Albums</title>
-    <style>
-      .footer {
-        /* position: fixed; */
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        text-align: center;
-      }
-    </style>
+    <title>Online Photo Book</title>
   </head>
   <body>
-    <div class="container">
-      <div class="column-1">
-        <div class="card">
-          <img src="./img/root/nature/cover.jpg" alt="Denim Jeans">
-          <h1>Nature</h1>
-          <p class="card__text">Contains a multiple nice picture about nature. </p>
-          <p><button OnClick="goToGallery('./albums/nature/1.html')">Open</button></p>
+    <header>
+      <div class="header__bg"></div>
+      <h1>Header Content</h1>
+    </header>
+    
+    <section class="content">
+      <div class="container">
+        <div class="column-1">
+          <div class="card">
+            <img src="./img/root/nature/cover.jpg" alt="Denim Jeans">
+            <h1>Nature</h1>
+            <p class="card__text">Contains a multiple nice picture about nature. </p>
+            <p><button OnClick="application.goToGallery('./albums/nature/1.html')">Open</button></p>
+          </div>
+        </div>
+        <div class="column-1">
+          <div class="card">
+            <img src="./img/root/trees/cover.jpg" alt="Denim Jeans">
+            <h1>Trees</h1>
+            <p class="card__text">A collection of images around the topic of trees.</p>
+            <p><button OnClick="application.goToGallery('./albums/trees/1.html')">Open</button></p>
+          </div>
         </div>
       </div>
-      <div class="column-1">
-        <div class="card">
-          <img src="./img/root/trees/cover.jpg" alt="Denim Jeans">
-          <h1>Trees</h1>
-          <p class="card__text">A collection of images around the topic of trees.</p>
-          <p><button OnClick="goToGallery('./albums/trees/1.html')">Open</button></p>
+  
+      <div class="container">
+        <div class="column-6">
+          <div class="footer">
+            <p>Copyright 2020 by <a href="https://www.zsurzsalaszlo.com/">Laszlo-Andras Zsurzsa</a>. All Rights Reserved.</p>
+          </div>
         </div>
       </div>
-    </div>
-
-    <div class="container">
-      <div class="column-6">
-        <div class="footer">
-          <p>Copyright 2020 by <a href="https://www.zsurzsalaszlo.com/">Laszlo-Andras Zsurzsa</a>. All Rights Reserved.</p>
-        </div>
-      </div>
-    </div>
+    </section>
   </body>
   <script src="js/main.js"></script>
   <script src="js/core.js"></script>
   <script src="js/settings.js"></script>
   <script src="js/utilities.js"></script>
+  <script src="js/gallery.js"></script>
 </body>
 </html>
