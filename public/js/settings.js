@@ -38,7 +38,5 @@
         return Object.assign({}, settings);
     };
 
-    // setup front-end application
-    application.extend('setting', setting);
     application.extend('getSettings', getSettings);
 })();
