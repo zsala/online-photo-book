@@ -1,26 +1,35 @@
-export let AssetTree = class {
-    constructor(root) {
-      this.root = root;
-    }
-
+export const AssetTree = class {
     getValues() {
       return [
         {
-          name: '',
-          path: 'img',
+          name: 'nature',
+          caption: 'Contains a multiple nice picture about nature.', // TODO: not used right now!
+          path: './img/root/',
+          cover: 'cover.jpg',
           files: [
-            {
-              name: '1.jpg',
-              url: './img/medium/1.jpg"'
-            },
-            {
-              name: '1.jpg',
-              url: './img/medium/2.jpg"'
-            },
-            {
-              name: '1.jpg',
-              url: './img/medium/3.jpg"'
-            },
+            '1.jpg',
+            '2.jpg',
+            '3.jpg',
+            '4.jpg',
+            '5.jpg',
+            '6.jpg',
+            '7.jpg',
+            '8.jpg',
+            '9.jpg',
+            '10.jpg',
+          ]
+        },
+        {
+          name: 'trees',
+          caption: 'A collection of images around the topic of trees.', // TODO: not used right now!
+          path: './img/root/',
+          cover: 'cover.jpg',
+          files: [
+            '1.jpg',
+            '2.jpg',
+            '3.jpg',
+            '4.jpg',
+            '5.jpg',
           ]
         },
       ];
