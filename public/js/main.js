@@ -1,4 +1,6 @@
 /**
  * Initialize modal logic.
  */
-application.modal.init();
+if (application.modal) {
+    application.modal.init();
+}
