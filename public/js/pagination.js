@@ -1,20 +1,23 @@
-// Utility functions
 (function () {
 
 	'use strict';
 
     const paginationContainer = document.getElementsByClassName("pagination")[0];
-    let index = paginationContainer.getAttribute('data-index');
+    const currentIndex = paginationContainer.getAttribute('data-index');
     const min = paginationContainer.getAttribute('data-min');
     const max = paginationContainer.getAttribute('data-max');
     const links = document.getElementsByTagName("a");
-
-    var pagination = {
+ 
+    /**
+     * Pagination object:
+     *  Contains logic related to moving between pages of the photo album.
+     */
+    const pagination = {
         previous() {
-            for(var i=0, maxLinks=links.length; i<maxLinks; i++) {
-                if (links[i].innerHTML == index) {
-                    if (index > min) {
-                        index--;
+            const maxLinks = links.length;
+            for(var i=0; i<maxLinks; i++) {
+                if (links[i].innerHTML == currentIndex) {
+                    if (currentIndex > min) {
                         application.log('Navigatin to: ' + links[i-1].href);
                         location.href = links[i-1].href;   
                     }
@@ -23,10 +26,10 @@
         },  
         
         next() {
-            for(var i=0, maxLinks=links.length; i<maxLinks; i++) {
-                if (links[i].innerHTML == index) {
-                    if (index < max) {
-                        index++;
+            const maxLinks = links.length;
+            for(var i=0; i<maxLinks; i++) {
+                if (links[i].innerHTML == currentIndex) {
+                    if (currentIndex < max) {
                         application.log('Navigatin to: ' + links[i+1].href);
                         location.href = links[i+1].href;
                     }

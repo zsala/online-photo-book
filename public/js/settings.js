@@ -1,4 +1,3 @@
-// Settings functionality
 (function () {
 
 	'use strict';

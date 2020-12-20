@@ -1,10 +1,9 @@
-// Settings functionality
 (function () {
 
 	'use strict';
 
     /**
-     * Go to a gallery page
+     * Callback function to go to a given gallery page
      * @param  {String} path the relative path to a gallery page
      */
     var goToGallery = function (path) {
