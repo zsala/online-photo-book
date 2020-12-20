@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack --config webpack.js"
+    "start": "webpack --config webpack.js",
+    "generate": "npm run start && node dist/main.generator.js"
   },
   "repository": {
     "type": "git",
