@@ -1,4 +1,3 @@
-// Utility functions
 (function () {
 
 	'use strict';
@@ -14,7 +13,6 @@
 
 		// Log a message to the console
 		console.log(msg);
-
     };
 
 	application.extend('log', log);
