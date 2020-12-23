@@ -1,30 +1,33 @@
+const fs = require('fs');
+
 export const GalleryBuilder = class {
 
     /**
      * 
-     * @param {*} assetTree 
-     * @param {*} index 
-     * @param {*} currentGalleryIndex 
-     * @param {*} imageStartIndex 
-     * @param {*} imageEndIndex 
-     * @param {*} maxGalleryNr 
+     * @param {boject} assetTree 
+     * @param {integer} galleryDataIndex 
+     * @param {integer} currentGalleryIndex 
+     * @param {integer} imageStartIndex 
+     * @param {integer} imageEndIndex 
+     * @param {integer} maxGalleryNr 
      */
-    constructor(assetTree, index, currentGalleryIndex, imageStartIndex, imageEndIndex, maxGalleryNr) {
+    constructor(assetTree, galleryDataIndex, currentGalleryIndex, imageStartIndex, imageEndIndex, maxGalleryNr) {
         
         // public variables
         this.assetTree = assetTree;
-        this.index = index; // index of the album
+        this.galleryDataIndex = galleryDataIndex;
         this.currentGalleryIndex = currentGalleryIndex;
         this.maxGalleryNr = maxGalleryNr;
         
         // private variables
         this.tiles = '';
-        this.values = this.assetTree.getValues();
-        this.name = this.values[index].name;
+        this.values = this.assetTree.getData();
+        this.name = this.values[galleryDataIndex].name;
 
         // TODO: only go till this.values[this.index].files.length!!!
+        // TODO: this logic assumes there are always a multiply by 5 nr of images in a folder!!!
         for (var i=imageStartIndex; i<imageEndIndex; i++) {
-            this.withTile(this.values[this.index].files[i])
+            this.withTile(this.values[this.galleryDataIndex].files[i])
         }
 
         this.withPagination();
@@ -55,7 +58,7 @@ export const GalleryBuilder = class {
         `;
     }
 
-    build() {
+    generateHtml() {
         return `
             <!DOCTYPE html>
             <html lang="en">
@@ -112,6 +115,17 @@ export const GalleryBuilder = class {
                 <script src="../../js/main.js"></script>
             </html>
 
-        `;
+        `; 
+    }
+
+    getPath() {
+        return __dirname + `/../dist/static/albums/${this.name}/${this.currentGalleryIndex+1}.html`
+    }
+
+    build() {
+        let htmlContent = this.generateHtml();
+        fs.writeFile(this.getPath(), htmlContent, function (err) {
+            if (err) console.log(err)
+        })
     }
 };

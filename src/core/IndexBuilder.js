@@ -4,7 +4,7 @@ export const IndexBuilder = class {
     constructor(assetTree) {
         this.albums = '';
         
-        const values = assetTree.getValues();
+        const values = assetTree.getData();
         const nrOfAlbums = values.length;
         for (var i=0; i<nrOfAlbums; i++) {
             this.withAlbum(values[i].name, '');
@@ -43,7 +43,7 @@ export const IndexBuilder = class {
             <body>
                 <header>
                 <div class="header__bg"></div>
-                <h1>Header Content</h1>
+                <h1>Albums</h1>
                 </header>
                 
                 <section class="content">

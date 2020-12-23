@@ -1,37 +1,50 @@
+const fs = require('fs');
+
 export const AssetTree = class {
-    getValues() {
-      return [
-        {
-          name: 'Nature',
-          caption: 'Contains a multiple nice picture about nature.', // TODO: not used right now!
-          path: './img/root/',
-          cover: 'cover.jpg',
-          files: [
-            '1.jpg',
-            '2.jpg',
-            '3.jpg',
-            '4.jpg',
-            '5.jpg',
-            '6.jpg',
-            '7.jpg',
-            '8.jpg',
-            '9.jpg',
-            '10.jpg',
-          ]
-        },
-        {
-          name: 'Trees',
-          caption: 'A collection of images around the topic of trees.', // TODO: not used right now!
-          path: './img/root/',
-          cover: 'cover.jpg',
-          files: [
-            '1.jpg',
-            '2.jpg',
-            '3.jpg',
-            '4.jpg',
-            '5.jpg',
-          ]
-        },
-      ];
+  constructor() {
+    this.directoryToScan = __dirname + '/../public/img/root';
+    this.directories = null;
+  }
+
+  scanDirectory(directoryToScan) {
+    const files = fs.readdirSync(directoryToScan);
+    if (files) {
+      files.forEach(file => {
+        const stats = fs.lstatSync(directoryToScan + '/' + file);
+        if (stats.isDirectory()) {
+          this.directories.push({
+            name: file,
+            caption: 'Test caption', // TODO: read it out from a file !?
+            path: './img/root/',
+            cover: 'cover.jpg',
+            files: []
+          });
+        }
+      });
     }
+  }
+  
+  scanImages(directoryToScan, directory) {
+      const files = fs.readdirSync(directoryToScan);
+      if (files) {
+          files.forEach(file => {
+              const stats = fs.lstatSync(directoryToScan + '/' + file);
+              if (stats.isFile()) {
+                if (file !== 'cover.jpg') directory.files.push(file);
+              }
+          });
+      }
+  }
+
+  getData() {
+    if (this.directories) return this.directories;
+
+    this.directories = [];
+    this.scanDirectory(this.directoryToScan);
+    for (let i=0; i<this.directories.length; i++) {
+        this.scanImages(this.directoryToScan + '/' + this.directories[i].name, this.directories[i]);
+    }
+      
+    return this.directories;
+  }
 };
