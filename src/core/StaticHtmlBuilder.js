@@ -17,13 +17,12 @@ export const StaticHtmlBuilder = class {
     build() {
         this.builders.indexBuilder.build();
 
-        let htmlContent = '';
         let dir = __dirname + `/../dist/static/albums`;
         if (!fs.existsSync(dir)){
             fs.mkdirSync(dir);
         }
 
-        const values = this.assetTree.getValues();
+        const values = this.assetTree.getData();
         const nrOfAlbums = values.length;
         for (var i=0; i<nrOfAlbums; i++) {
             let dir = __dirname + `/../dist/static/albums/${values[i].name}`;
@@ -32,16 +31,12 @@ export const StaticHtmlBuilder = class {
             }
 
             const nrOfImages = values[i].files.length;
+            console.log(nrOfImages);
             const nrOfGalleries = (nrOfImages) / 5;
-
-            // TODO: this logic assumes there are always a multiply by 5 nr of images in a folder!!!
+            console.log(nrOfGalleries);
             for (var j=0; j<nrOfGalleries; j++) {
                 this.builders.galleryBuilder = new GalleryBuilder(this.assetTree, i, j, j * 5, (j+1) * 5, nrOfGalleries),
-                htmlContent = this.builders.galleryBuilder.build();
-                
-                fs.writeFile(__dirname + `/../dist/static/albums/${values[i].name}/${j+1}.html`, htmlContent, function (err) {
-                    if (err) console.log(err)
-                })
+                this.builders.galleryBuilder.build();
             }
         }
     }
