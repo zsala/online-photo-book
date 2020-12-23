@@ -1,70 +1,48 @@
+import { GalleryBuilder } from './GalleryBuilder';
+import { IndexBuilder } from './IndexBuilder';
+const fs = require('fs');
+
 export const StaticHtmlBuilder = class {
     constructor(assetTree) {
-        this.albums = '';
-        
-        const values = assetTree.getValues();
+        this.assetTree = assetTree;
+        this.builders = {
+            galleryBuilder: null,
+            indexBuilder: new IndexBuilder(assetTree),
+        };
+    }
+
+    /**
+     * TODO: cleanup, this function only runs the builders, it does not handle file creation etc. logic.
+     */
+    build() {
+        this.builders.indexBuilder.build();
+
+        let htmlContent = '';
+        let dir = __dirname + `/../dist/static/albums`;
+        if (!fs.existsSync(dir)){
+            fs.mkdirSync(dir);
+        }
+
+        const values = this.assetTree.getValues();
         const nrOfAlbums = values.length;
         for (var i=0; i<nrOfAlbums; i++) {
-            this.withAlbum(values[i].name, '');
-        }
-    }
+            let dir = __dirname + `/../dist/static/albums/${values[i].name}`;
+            if (!fs.existsSync(dir)){
+                fs.mkdirSync(dir);
+            }
 
-    withAlbum(name, text) {
-        this.albums += `
-            <div class="column-1">
-                <div class="card">
-                    <img src="./img/root/${name}/cover.jpg" alt="Denim Jeans">
-                    <h1>${name}</h1>
-                    <p class="card__text">${text}</p>
-                    <p><button OnClick="application.goToGallery('./albums/${name}/1.html')">Open</button></p>
-                </div>
-            </div>
-        `;
+            const nrOfImages = values[i].files.length;
+            const nrOfGalleries = (nrOfImages) / 5;
 
-        return this;
-    }
-
-    build() {
-        return `
-            <!DOCTYPE html>
-            <html>
-            <head>
-                <link rel="stylesheet" href="css/card.css"/>
-                <link rel="stylesheet" href="css/main.css"/>
-                <link rel="stylesheet" href="css/modal.css"/>
-                <link rel="stylesheet" href="css/breadcrumb.css"/>
-                <link rel="stylesheet" href="css/footer.css"/>
-                <link rel="stylesheet" href="css/pagination.css"/>
-                <link rel="stylesheet" href="css/color-themes/sky.css"/>
-                <title>Online Photo Book</title>
-            </head>
-            <body>
-                <header>
-                <div class="header__bg"></div>
-                <h1>Header Content</h1>
-                </header>
+            // TODO: this logic assumes there are always a multiply by 5 nr of images in a folder!!!
+            for (var j=0; j<nrOfGalleries; j++) {
+                this.builders.galleryBuilder = new GalleryBuilder(this.assetTree, i, j, j * 5, (j+1) * 5, nrOfGalleries),
+                htmlContent = this.builders.galleryBuilder.build();
                 
-                <section class="content">
-                <div class="container">
-                    ${this.albums}
-                </div>
-            
-                <div class="container">
-                    <div class="column-6">
-                    <div class="footer">
-                        <p>Copyright 2020 by <a href="https://www.zsurzsalaszlo.com/">Laszlo-Andras Zsurzsa</a>. All Rights Reserved.</p>
-                    </div>
-                    </div>
-                </div>
-                </section>
-            </body>
-            <script src="js/main.js"></script>
-            <script src="js/core.js"></script>
-            <script src="js/settings.js"></script>
-            <script src="js/utilities.js"></script>
-            <script src="js/gallery.js"></script>
-            </body>
-            </html>
-        `
+                fs.writeFile(__dirname + `/../dist/static/albums/${values[i].name}/${j+1}.html`, htmlContent, function (err) {
+                    if (err) console.log(err)
+                })
+            }
+        }
     }
 };

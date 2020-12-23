@@ -13,6 +13,9 @@ module.exports = {
     historyApiFallback: true,
     stats: "minimal"
   },
+  optimization: {
+    minimize: false // TODO: should depend on environment variables!!!
+  },
   module: {
     rules: [
       {

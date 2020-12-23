@@ -2,7 +2,7 @@ export const AssetTree = class {
     getValues() {
       return [
         {
-          name: 'nature',
+          name: 'Nature',
           caption: 'Contains a multiple nice picture about nature.', // TODO: not used right now!
           path: './img/root/',
           cover: 'cover.jpg',
@@ -20,7 +20,7 @@ export const AssetTree = class {
           ]
         },
         {
-          name: 'trees',
+          name: 'Trees',
           caption: 'A collection of images around the topic of trees.', // TODO: not used right now!
           path: './img/root/',
           cover: 'cover.jpg',

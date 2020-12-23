@@ -8,10 +8,7 @@ const fs = require('fs');
  */
 let assetTree = new AssetTree();
 let staticHtmlBuilder = new StaticHtmlBuilder(assetTree);
-let htmlContent = staticHtmlBuilder.build();
-fs.writeFile(__dirname + '/../dist/static/index.html', htmlContent, function (err) {
-    if (err) console.log(err)
-})
+staticHtmlBuilder.build();
 
 /**
  * Scan folder structure and log out files and directories.
