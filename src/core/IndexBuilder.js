@@ -42,8 +42,9 @@ export const IndexBuilder = class {
             </head>
             <body>
                 <header>
-                <div class="header__bg"></div>
-                <h1>Albums</h1>
+                    <h1>The greatest moments of my life</h1>
+                    <hr>
+                    <h2>My Photo Albums</h2>
                 </header>
                 
                 <section class="content">
@@ -54,6 +55,7 @@ export const IndexBuilder = class {
                 <div class="container">
                     <div class="column-6">
                     <div class="footer">
+                        <hr>
                         <p>Copyright 2020 by <a href="https://www.zsurzsalaszlo.com/">Laszlo-Andras Zsurzsa</a>. All Rights Reserved.</p>
                     </div>
                     </div>

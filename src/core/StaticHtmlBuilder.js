@@ -31,9 +31,7 @@ export const StaticHtmlBuilder = class {
             }
 
             const nrOfImages = values[i].files.length;
-            console.log(nrOfImages);
             const nrOfGalleries = (nrOfImages) / 5;
-            console.log(nrOfGalleries);
             for (var j=0; j<nrOfGalleries; j++) {
                 this.builders.galleryBuilder = new GalleryBuilder(this.assetTree, i, j, j * 5, (j+1) * 5, nrOfGalleries),
                 this.builders.galleryBuilder.build();
