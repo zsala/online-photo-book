@@ -7,20 +7,16 @@ export const IndexBuilder = class {
         const values = assetTree.getData();
         const nrOfAlbums = values.length;
         for (var i=0; i<nrOfAlbums; i++) {
-            this.withAlbum(values[i].name, '');
+            this.withAlbum(values[i].name);
         }
     }
 
-    withAlbum(name, text) {
+    withAlbum(name) {
         this.albums += `
-            <div class="column-1">
-                <div class="card">
-                    <img src="./img/root/${name}/cover.jpg" alt="Denim Jeans">
-                    <h1>${name}</h1>
-                    <p class="card__text">${text}</p>
-                    <p><button OnClick="application.goToGallery('./albums/${name}/1.html')">Open</button></p>
-                </div>
-            </div>
+            <li>
+                <span>${name}</span>
+                <img onClick="application.goToGallery('./albums/${name}/1.html')" src="./img/root/${name}/cover.jpg" />
+            </li>
         `;
 
         return this;
@@ -37,6 +33,7 @@ export const IndexBuilder = class {
                 <link rel="stylesheet" href="css/breadcrumb.css"/>
                 <link rel="stylesheet" href="css/footer.css"/>
                 <link rel="stylesheet" href="css/pagination.css"/>
+                <link rel="stylesheet" href="css/album.css"/>
                 <link rel="stylesheet" href="css/color-themes/sky.css"/>
                 <title>Online Photo Book</title>
             </head>
@@ -48,8 +45,8 @@ export const IndexBuilder = class {
                 </header>
                 
                 <section class="content">
-                <div class="container">
-                    ${this.albums}
+                <div class=container>
+                    <ul>${this.albums}</ul>
                 </div>
             
                 <div class="container">
@@ -73,7 +70,7 @@ export const IndexBuilder = class {
     }
 
     getPath() {
-        return __dirname + '/../dist/static/index.html';
+        return __dirname + '/../dist/index.html';
     }
 
     build() {

@@ -7,4 +7,5 @@ import { StaticHtmlBuilder } from './core/StaticHtmlBuilder';
  */
 let assetTree = new AssetTree();
 let staticHtmlBuilder = new StaticHtmlBuilder(assetTree);
+staticHtmlBuilder.setup();
 staticHtmlBuilder.build();

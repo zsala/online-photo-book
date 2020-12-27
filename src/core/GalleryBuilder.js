@@ -119,7 +119,7 @@ export const GalleryBuilder = class {
     }
 
     getPath() {
-        return __dirname + `/../dist/static/albums/${this.name}/${this.currentGalleryIndex+1}.html`
+        return __dirname + `/../dist/albums/${this.name}/${this.currentGalleryIndex+1}.html`
     }
 
     build() {
