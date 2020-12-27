@@ -5,6 +5,7 @@
 # Missing features
 - lazy loading for images
 - cleanup the css
-- generate static html for different galleries
 - class / id -> use consistent naming for css and js related stuff
-- create code to copy all jvascript, css and image assets
+- internalization
+- add debugging option to html generator
+- rename js files

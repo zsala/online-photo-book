@@ -1,0 +1,42 @@
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    min-height: 500px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+    background-color: white;
+    justify-content: normal;
+    display: grid;
+}
+
+.card .card__text {
+    padding: 10px;
+}
+
+.card button {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: var(--text);
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+}
+
+.card button:hover {
+    opacity: 0.7;
+}
+
+.card p {
+    display: grid;
+    align-items: end;
+    padding: 0px;
+    margin: 0;
+}
+
+.card img {
+    width: 100%;
+}
