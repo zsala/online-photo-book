@@ -9,8 +9,7 @@
     const links = document.getElementsByTagName("a");
  
     /**
-     * Pagination object:
-     *  Contains logic related to moving between pages of the photo album.
+     * Pagination object: contains logic related to moving between pages of the photo album.
      */
     const pagination = {
         previous() {

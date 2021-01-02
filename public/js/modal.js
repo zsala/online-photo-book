@@ -18,8 +18,6 @@
                 currentImage.onclick = this.onModalOpen.bind(this, currentImage);
             }
 
-            application.log(this.modalData);
-
             // Get the <span> element that closes the modal
             const span = document.getElementsByClassName("close")[0];
             if (span) {
@@ -45,8 +43,6 @@
             this.modal.style.display = "none";
         }
     }
-
-    //Modal.init();
 
     application.extend('modal', Modal);
 })();

@@ -16,4 +16,3 @@ https://gomakethings.com/building-an-extensible-app-or-library-with-vanilla-js/
 
 # Source of images
 https://www.pexels.com/
-

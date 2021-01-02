@@ -7,13 +7,12 @@
     <link rel="stylesheet" href="css/breadcrumb.css"/>
     <link rel="stylesheet" href="css/footer.css"/>
     <link rel="stylesheet" href="css/pagination.css"/>
-    <link rel="stylesheet" href="css/experiment.css"/>
+    <link rel="stylesheet" href="css/album.css"/>
     <link rel="stylesheet" href="css/color-themes/sky.css"/>
     <title>Online Photo Book</title>
   </head>
   <body>
     <header>
-      <div ></div>
       <h1>The greatest moments of my life</h1>
       <hr>
       <h2>My Photo Albums</h2>
@@ -23,42 +22,26 @@
       <div class=container>
         <ul>
           <li>
-            <span>Nature</span>
-            <img src='./img/root/Nature/cover.jpg' />
+            <span>Business</span>
+            <img onClick="application.gallery.goToGallery('./albums/Business/1.html')" src="./img/root/Business/cover.jpg" />
           </li>
-          <li>
-            <span>Trees</span>
-            <img src='./img/root/Trees/3.jpg' />
-          </li>
-          <li>
-            <span>Trees</span>
-            <img src='./img/root/Trees/2.jpg' />
-          </li>
-          <li>
-            <span>Trees</span>
-            <img src='./img/root/Trees/1.jpg' />
-          </li>
-        </ul>
-      </div>
 
-      <!-- <div class="container">
-        <div class="column-1">
-          <div class="card">
-            <img src="./img/root/Nature/cover.jpg" alt="Denim Jeans">
-            <h1>Nature</h1>
-            <p class="card__text">Contains a multiple nice picture about nature. </p>
-            <p><button OnClick="application.goToGallery('./albums/Nature/1.html')">Open</button></p>
-          </div>
-        </div>
-        <div class="column-1">
-          <div class="card">
-            <img src="./img/root/Trees/cover.jpg" alt="Denim Jeans">
-            <h1>Trees</h1>
-            <p class="card__text">A collection of images around the topic of trees.</p>
-            <p><button OnClick="application.goToGallery('./albums/Trees/1.html')">Open</button></p>
-          </div>
-        </div>
-      </div>  -->
+          <li>
+            <span>Nature</span>
+            <img onClick="application.gallery.goToGallery('./albums/Nature/1.html')" src="./img/root/Nature/cover.jpg" />
+          </li>
+
+          <li>
+            <span>Roads</span>
+            <img onClick="application.gallery.goToGallery('./albums/Roads/1.html')" src="./img/root/Roads/cover.jpg" />
+          </li>
+
+          <li>
+            <span>Trees</span>
+            <img onClick="application.gallery.goToGallery('./albums/Trees/1.html')" src="./img/root/Trees/cover.jpg" />
+          </li>
+          </ul>
+      </div>
   
       <div class="container">
         <div class="column-6">
