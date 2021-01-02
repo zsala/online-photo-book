@@ -15,7 +15,7 @@ export const IndexBuilder = class {
         this.albums += `
             <li>
                 <span>${name}</span>
-                <img onClick="application.goToGallery('./albums/${name}/1.html')" src="./img/root/${name}/cover.jpg" />
+                <img onClick="application.gallery.goToGallery('./albums/${name}/1.html')" src="./img/root/${name}/cover.jpg" />
             </li>
         `;
 
