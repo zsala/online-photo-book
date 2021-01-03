@@ -1,9 +1,15 @@
-# online-photo-book
-Open-source, statically generated photo-album for Cloud (S3, etc.) hosting.
+# Online Photo Book
+
+## Introduction 
+
+Open-source, statically generated photo-album for Cloud (S3, RaspberryPI etc.) hosting.
 
 > Perception isn’t reality, it’s the only reality - Amy and Jordan Demos
 
-# Introduction
+## Description
+
+The main purpose of the project is to create an open-source image sharing solution for self-hosters or web artisans.
+Focus of the project is to be as pragmatical as possible in sense of storage and performance ussage.
 
 # Features
 
@@ -13,9 +19,11 @@ Open-source, statically generated photo-album for Cloud (S3, etc.) hosting.
 - [ ] (multi) user handling logic
 
 # Missing enhancments
-- [ ] lazy loading for images
-- [ ] cleanup the css
-- [ ] class / id -> use consistent naming for css and js related stuff
+- [ ] JS optimization: minify and bundle js for production ready code, consistent class / id namings for js related logic
+- [ ] CSS optimizatin: cleanup css (one naming convention), minify and bundle correctly
+- [ ] Performance optimization: lazy loading for images, optimize image resolution based on user screen
+- [ ] Introduce consistent versioning of the project and road-map
+- [ ] Conceptualize and document the development of the project (tbd)
 
 # Made with a lot of :heart: on and for: 
 
