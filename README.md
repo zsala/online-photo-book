@@ -13,10 +13,11 @@ Focus of the project is to be as pragmatical as possible in sense of storage and
 
 # Features
 
-- [x] static website generator for images
+- [x] Static website generator for images
 - [ ] 1 click deployment scripts for a given cloud provider
-- [ ] internalization
-- [ ] (multi) user handling logic
+- [ ] Internalization
+- [ ] (multi) User handling logic
+- [ ] Mobile / Desktop optimization + Pagespeed optimizations
 
 # Missing enhancments
 - [ ] JS optimization: minify and bundle js for production ready code, consistent class / id namings for js related logic
