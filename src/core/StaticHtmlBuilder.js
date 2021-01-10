@@ -6,10 +6,6 @@ const ncp = require('ncp').ncp;
 export const StaticHtmlBuilder = class {
     constructor(assetTree) {
         this.assetTree = assetTree;
-        this.builders = {
-            galleryBuilder: null,
-            indexBuilder: new IndexBuilder(assetTree),
-        };
     }
 
     setup() {
@@ -24,7 +20,7 @@ export const StaticHtmlBuilder = class {
         ];
 
         fromToFolders.forEach(fromTo => {
-            const from = fromTo[0];
+            const from = fromTo[0]; 
             const to = fromTo[1];
             
             ncp(from, to, (err) => { 
@@ -34,12 +30,13 @@ export const StaticHtmlBuilder = class {
         });
     }
 
-    /**
-     * TODO: cleanup, this function only runs the builders, it does not handle file creation etc. logic.
-     */
+     /**
+      * Create destination folders for the static web pages for all data gathered through the asset tree.
+      */
     build() {
-        this.builders.indexBuilder.build();
-
+        const indexBuilder = new IndexBuilder(this.assetTree);
+        indexBuilder.build();
+        
         let dir = __dirname + `/../dist/albums`;
         if (!fs.existsSync(dir)){
             fs.mkdirSync(dir);
@@ -47,6 +44,7 @@ export const StaticHtmlBuilder = class {
 
         const values = this.assetTree.getData();
         const nrOfAlbums = values.length;
+        let galleryBuilder = null;
         for (var i=0; i<nrOfAlbums; i++) {
             let dir = __dirname + `/../dist/albums/${values[i].name}`;
             if (!fs.existsSync(dir)){
@@ -56,8 +54,8 @@ export const StaticHtmlBuilder = class {
             const nrOfImages = values[i].files.length;
             const nrOfGalleries = (nrOfImages) / 5;
             for (var j=0; j<nrOfGalleries; j++) {
-                this.builders.galleryBuilder = new GalleryBuilder(this.assetTree, i, j, j * 5, (j+1) * 5, nrOfGalleries),
-                this.builders.galleryBuilder.build();
+                galleryBuilder = new GalleryBuilder(this.assetTree, i, j, j * 5, (j+1) * 5, nrOfGalleries),
+                galleryBuilder.build();
             }
         }
     }

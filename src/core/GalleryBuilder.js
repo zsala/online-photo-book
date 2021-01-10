@@ -3,13 +3,11 @@ const fs = require('fs');
 export const GalleryBuilder = class {
 
     /**
-     * 
-     * @param {boject} assetTree 
-     * @param {integer} galleryDataIndex 
-     * @param {integer} currentGalleryIndex 
-     * @param {integer} imageStartIndex 
-     * @param {integer} imageEndIndex 
-     * @param {integer} maxGalleryNr 
+     * @param {boject} assetTree image data
+     * @param {integer} galleryDataIndex number of the current album data consisting of all data realted to the galleries to be generated
+     * @param {integer} imageStartIndex the index of the first image from a given page from the gallery data of an image album
+     * @param {integer} imageEndIndex the index of the last image from a given page from the gallery data of an image album
+     * @param {integer} maxGalleryNr the maximum number of galleries generated for a given image album
      */
     constructor(assetTree, galleryDataIndex, currentGalleryIndex, imageStartIndex, imageEndIndex, maxGalleryNr) {
         
@@ -24,15 +22,16 @@ export const GalleryBuilder = class {
         this.values = this.assetTree.getData();
         this.name = this.values[galleryDataIndex].name;
 
-        // TODO: only go till this.values[this.index].files.length!!!
-        // TODO: this logic assumes there are always a multiply by 5 nr of images in a folder!!!
-        for (var i=imageStartIndex; i<imageEndIndex; i++) {
+        for (var i=imageStartIndex; (i<imageEndIndex || i<this.values[this.galleryDataIndex].files.length); i++) {
             this.withTile(this.values[this.galleryDataIndex].files[i])
         }
 
         this.withPagination();
     }
 
+    /**
+     * Generate all pagination entries for a given gallery page of an image album.
+     */
     withPagination() {
         let entries = '';
         for (var i=1; i<=this.maxGalleryNr; i++) {
@@ -50,6 +49,10 @@ export const GalleryBuilder = class {
         `;
     }
 
+    /**
+     * Adds a new image entry for the current gallery page.
+     * @param {String} fileName the name of the image file shown in the gallery
+     */
     withTile(fileName) {
         this.tiles += `
             <div class="tile">
@@ -118,6 +121,9 @@ export const GalleryBuilder = class {
         `; 
     }
 
+    /**
+     * Function returns the absolute path of a gallery page generated for a given batch of images.
+     */
     getPath() {
         return __dirname + `/../dist/albums/${this.name}/${this.currentGalleryIndex+1}.html`
     }
@@ -125,7 +131,7 @@ export const GalleryBuilder = class {
     build() {
         let htmlContent = this.generateHtml();
         fs.writeFile(this.getPath(), htmlContent, function (err) {
-            if (err) console.log(err)
+            if (err) console  (err)
         })
     }
 };
