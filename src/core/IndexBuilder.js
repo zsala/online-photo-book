@@ -11,6 +11,10 @@ export const IndexBuilder = class {
         }
     }
 
+    /**
+     * Generate an album entry on the main page.
+     * @param {String} name the name of the generated album entry
+     */
     withAlbum(name) {
         this.albums += `
             <li>
@@ -22,6 +26,9 @@ export const IndexBuilder = class {
         return this;
     }
 
+    /**
+     * Generated html.
+     */
     generateHtml() {
         return `
             <!DOCTYPE html>
@@ -69,6 +76,9 @@ export const IndexBuilder = class {
         `
     }
 
+    /**
+     * Path of the entry html file for the static website.
+     */
     getPath() {
         return __dirname + '/../dist/index.html';
     }
