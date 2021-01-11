@@ -1,5 +1,9 @@
 const fs = require('fs');
 
+/**
+ * Description:
+ *  The object generates the index.html file.
+ */
 export const IndexBuilder = class {
     constructor(assetTree) {
         this.albums = '';

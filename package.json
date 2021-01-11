@@ -1,6 +1,6 @@
 {
   "name": "online-photo-book",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -12,8 +12,8 @@
     "url": "git+https://github.com/zsala/online-photo-book.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Laszlo-Andras Zsurzsa",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/zsala/online-photo-book/issues"
   },

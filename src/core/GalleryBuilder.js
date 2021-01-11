@@ -1,9 +1,13 @@
 const fs = require('fs');
 
+/**
+ * Description:
+ *  The object generates the different gallery html files for a given photo album.
+ */
 export const GalleryBuilder = class {
 
     /**
-     * @param {boject} assetTree image data
+     * @param {boject} assetTree asset data collected for static website generation
      * @param {integer} galleryDataIndex number of the current album data consisting of all data realted to the galleries to be generated
      * @param {integer} imageStartIndex the index of the first image from a given page from the gallery data of an image album
      * @param {integer} imageEndIndex the index of the last image from a given page from the gallery data of an image album
@@ -22,7 +26,7 @@ export const GalleryBuilder = class {
         this.values = this.assetTree.getData();
         this.name = this.values[galleryDataIndex].name;
 
-        for (var i=imageStartIndex; (i<imageEndIndex || i<this.values[this.galleryDataIndex].files.length); i++) {
+        for (var i=imageStartIndex; (i<imageEndIndex); i++) {
             this.withTile(this.values[this.galleryDataIndex].files[i])
         }
 

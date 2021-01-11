@@ -4,7 +4,7 @@
 
 	/**
 	 * Log a message to the console
-	 * @param  {String} msg The message to log
+	 * @param {String} msg The message to log
 	 */
 	var log = function (msg) {
 

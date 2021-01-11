@@ -34,8 +34,8 @@ export const AssetTree = class {
   
   /**
    * Scan a given image directory and save all image relevant data for later processes
-   * @param {*} directory absolute url to an image directory
-   * @param {*} data directory data where file names are saved
+   * @param {String} directory absolute url to an image directory
+   * @param {Object} data directory data where file names are saved
    */
   scanImages(directory, data) {
       const files = fs.readdirSync(directory);

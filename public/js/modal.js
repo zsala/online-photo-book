@@ -27,7 +27,7 @@
 
         /**
          * When the user clicks on an image in the gallery open the modal.
-         * @param {*} self 
+         * @param {Object} self 
          */
         onModalOpen(self) {
             this.modal.style.display = "block";
@@ -37,7 +37,7 @@
 
         /**
          * When the user clicks on <span> (x), close the modal.
-         * @param {*} self 
+         * @param {Object} self 
          */
         onModalClose(self) {
             this.modal.style.display = "none";
