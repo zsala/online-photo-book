@@ -10,7 +10,7 @@
     /**
      * Update the settings object
      * @param  {String} key The setting key
-     * @param  {*}      val The new value
+     * @param  {String} val The new value
      */
     let setting = function (key, val) {
 
@@ -24,7 +24,7 @@
     /**
      * Get settings
      * @param  {String} key The setting key (optional)
-     * @return {*}          The setting or object of settings
+     * @return {Object} The setting or object of settings
      */
     var getSettings = function (key) {
 

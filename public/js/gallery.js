@@ -27,7 +27,7 @@
 
         /**
          * Callback function to go to a given gallery page
-         * @param  {String} path the relative path to a gallery page
+         * @param {String} path the relative path to a gallery page
          */
         goToGallery(path) {
             location.href = path;
