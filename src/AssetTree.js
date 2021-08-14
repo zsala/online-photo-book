@@ -1,9 +1,9 @@
 const fs = require('fs');
 
-/** 
+/**
  * Description:
- *  The main repsponsability of this object is to gather all relevant data needed for the
- *  static website generators. 
+ *  The main responsibility of this object is to gather all relevant data needed for the
+ *  static website generators.
  */
 export const AssetTree = class {
   constructor() {
@@ -25,13 +25,16 @@ export const AssetTree = class {
             name: file,
             path: './img/root/',
             cover: 'cover.jpg',
-            files: []
+            files: {
+                'small': [],
+                'high': [],
+            }
           });
         }
       });
     }
   }
-  
+
   /**
    * Scan a given image directory and save all image relevant data for later processes
    * @param {String} directory absolute url to an image directory
@@ -43,24 +46,33 @@ export const AssetTree = class {
           files.forEach(file => {
               const stats = fs.lstatSync(directory + '/' + file);
               if (stats.isFile()) {
-                if (file !== 'cover.jpg') data.files.push(file);
+                if (file !== 'cover.jpg') {
+                    const regexSmall = new RegExp('small', '');
+                    const result = regexSmall.exec(file);
+
+                    if (result) {
+                        data.files.small.push(file);
+                    } else {
+                        data.files.high.push(file);
+                    }
+                }
               }
           });
       }
   }
 
   /**
-   * Get all gethered data related to images.
+   * Get all gathered data related to images.
    */
   getData() {
-    if (this.directories) return this.directories;
+      if (this.directories) return this.directories;
 
-    this.directories = [];
-    this.scanDirectory(this.directoryToScan);
-    for (let i=0; i<this.directories.length; i++) {
-        this.scanImages(this.directoryToScan + '/' + this.directories[i].name, this.directories[i]);
-    }
-      
-    return this.directories;
+      this.directories = [];
+      this.scanDirectory(this.directoryToScan);
+      for (let i = 0; i < this.directories.length; i++) {
+          this.scanImages(this.directoryToScan + '/' + this.directories[i].name, this.directories[i]);
+      }
+
+      return this.directories;
   }
 };

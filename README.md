@@ -22,10 +22,13 @@ Focus of the project is to be as pragmatical as possible in sense of storage and
 # Missing enhancments
 - [ ] JS optimization: minify and bundle js for production ready code, consistent class / id namings for js related logic
 - [ ] CSS optimizatin: cleanup css (one naming convention), minify and bundle correctly
-- [ ] Performance optimization: lazy loading for images, optimize image resolution based on user screen
+- [x] Performance optimization: lazy loading for images, optimize image resolution based on user screen
 - [ ] Introduce consistent versioning of the project and road-map
 - [ ] Conceptualize and document the development of the project (tbd)
 
 # Made with a lot of :heart: on and for: 
 
 ![Raspberrypi](https://tinyurl.com/yb76rgo9)
+
+## Idea add option to change how the images are shown
+## Remove the albums part just make a simple grid with images

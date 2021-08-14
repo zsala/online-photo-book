@@ -1,7 +1,7 @@
 import { GalleryBuilder } from './GalleryBuilder';
 import { IndexBuilder } from './IndexBuilder';
 const fs = require('fs');
-const ncp = require('ncp').ncp; 
+const ncp = require('ncp').ncp;
 
 /**
  * Description:
@@ -28,12 +28,12 @@ export const StaticHtmlBuilder = class {
         ];
 
         fromToFolders.forEach(fromTo => {
-            const from = fromTo[0]; 
+            const from = fromTo[0];
             const to = fromTo[1];
-            
-            ncp(from, to, (err) => { 
-                if (err) return console.error(err); 
-                console.log(`-> ${from} copied recursively ...`); 
+
+            ncp(from, to, (err) => {
+                if (err) return console.error(err);
+                console.log(`-> ${from} copied recursively ...`);
             });
         });
     }
@@ -44,7 +44,7 @@ export const StaticHtmlBuilder = class {
     build() {
         const indexBuilder = new IndexBuilder(this.assetTree);
         indexBuilder.build();
-        
+
         let dir = __dirname + `/../dist/albums`;
         if (!fs.existsSync(dir)){
             fs.mkdirSync(dir);
@@ -53,18 +53,18 @@ export const StaticHtmlBuilder = class {
         const values = this.assetTree.getData();
         const nrOfAlbums = values.length;
         let galleryBuilder = null;
-        for (var i=0; i<nrOfAlbums; i++) {
+        for (let i=0; i<nrOfAlbums; i++) {
             let dir = __dirname + `/../dist/albums/${values[i].name}`;
             if (!fs.existsSync(dir)){
-                fs.mkdirSync(dir);   
+                fs.mkdirSync(dir);
             }
 
-            const nrOfImages = values[i].files.length;
+            const nrOfImages = values[i].files.small.length;
             const nrOfGalleries = (nrOfImages) / 5;
-            for (var j=0; j<nrOfGalleries; j++) {
+            for (let j=0; j<nrOfGalleries; j++) {
                 galleryBuilder = new GalleryBuilder(this.assetTree, i, j, j * 5, (j+1) * 5, nrOfGalleries),
                 galleryBuilder.build();
-            } 
+            }
         }
     }
 };

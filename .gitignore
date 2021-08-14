@@ -1,5 +1,6 @@
 # Build files
 dist/
+.idea
 
 # Dependency directories
 node_modules/

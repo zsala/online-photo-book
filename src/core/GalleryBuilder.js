@@ -5,29 +5,29 @@ const fs = require('fs');
  *  The object generates the different gallery html files for a given photo album.
  */
 export const GalleryBuilder = class {
-
     /**
-     * @param {boject} assetTree asset data collected for static website generation
-     * @param {integer} galleryDataIndex number of the current album data consisting of all data realted to the galleries to be generated
-     * @param {integer} imageStartIndex the index of the first image from a given page from the gallery data of an image album
-     * @param {integer} imageEndIndex the index of the last image from a given page from the gallery data of an image album
-     * @param {integer} maxGalleryNr the maximum number of galleries generated for a given image album
+     * @param {object} assetTree asset data collected for static website generation
+     * @param {int} galleryDataIndex number of the current album data consisting of all data realted to the galleries to be generated
+     * @param {int} currentGalleryIndex
+     * @param {int} imageStartIndex the index of the first image from a given page from the gallery data of an image album
+     * @param {int} imageEndIndex the index of the last image from a given page from the gallery data of an image album
+     * @param {int} maxGalleryNr the maximum number of galleries generated for a given image album
      */
     constructor(assetTree, galleryDataIndex, currentGalleryIndex, imageStartIndex, imageEndIndex, maxGalleryNr) {
-        
+
         // public variables
         this.assetTree = assetTree;
         this.galleryDataIndex = galleryDataIndex;
         this.currentGalleryIndex = currentGalleryIndex;
         this.maxGalleryNr = maxGalleryNr;
-        
+
         // private variables
         this.tiles = '';
         this.values = this.assetTree.getData();
         this.name = this.values[galleryDataIndex].name;
 
-        for (var i=imageStartIndex; (i<imageEndIndex); i++) {
-            this.withTile(this.values[this.galleryDataIndex].files[i])
+        for (let i=imageStartIndex; (i<imageEndIndex); i++) {
+            this.withTile(this.values[this.galleryDataIndex].files.small[i])
         }
 
         this.withPagination();
@@ -38,14 +38,14 @@ export const GalleryBuilder = class {
      */
     withPagination() {
         let entries = '';
-        for (var i=1; i<=this.maxGalleryNr; i++) {
-            entries += ((this.currentGalleryIndex + 1) == i) ? 
-                `<a class="active" href="${i}.html">${i}</a>` : 
+        for (let i=1; i<=this.maxGalleryNr; i++) {
+            entries += ((this.currentGalleryIndex + 1) === i) ?
+                `<a class="active" href="${i}.html">${i}</a>` :
                 `<a href="${i}.html">${i}</a>`;
         }
 
         this.pagination = `
-            <div class="pagination column-4" data-index="${this.currentGalleryIndex+1}" data-min="1" data-max="${this.maxGalleryNr}">
+            <div class="pagination column-6" data-index="${this.currentGalleryIndex+1}" data-min="1" data-max="${this.maxGalleryNr}">
                 <a class="pagination__prev" onclick='application.pagination.previous()' href="#">&laquo;</a>
                 ${entries}
                 <a class="pagination__next" onclick='application.pagination.next()' href="#">&raquo;</a>
@@ -58,9 +58,12 @@ export const GalleryBuilder = class {
      * @param {String} fileName the name of the image file shown in the gallery
      */
     withTile(fileName) {
+        const regexSmall = new RegExp('small', '');
+        const result = regexSmall.exec(fileName);
+
         this.tiles += `
             <div class="tile">
-                <img class="tile__image" src="../../img/root/${this.name}/${fileName}" alt="">
+                <img class="tile__image tile__image--blur" src="../../img/root/${this.name}/${fileName}" alt="">
             </div>
         `;
     }
@@ -121,8 +124,7 @@ export const GalleryBuilder = class {
                 <script src="../../js/modal.js"></script>
                 <script src="../../js/main.js"></script>
             </html>
-
-        `; 
+        `;
     }
 
     /**
@@ -133,7 +135,7 @@ export const GalleryBuilder = class {
     }
 
     build() {
-        let htmlContent = this.generateHtml();
+        const htmlContent = this.generateHtml();
         fs.writeFile(this.getPath(), htmlContent, function (err) {
             if (err) console  (err)
         })
