@@ -112,7 +112,7 @@ export const GalleryBuilder = class {
                     <div class="container">
                         <div class="column-6">
                         <div class="footer">
-                            <p>Copyright 2020 by <a href="https://www.zsurzsalaszlo.com/">Laszlo-Andras Zsurzsa</a>. All Rights Reserved.</p>
+                            <p>Copyright 2021 by <a href="https://www.zsurzsalaszlo.com/">Laszlo-Andras Zsurzsa</a>. All Rights Reserved.</p>
                         </div>
                         </div>
                     </div>

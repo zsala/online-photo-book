@@ -7,7 +7,7 @@ const fs = require('fs');
 export const IndexBuilder = class {
     constructor(assetTree) {
         this.albums = '';
-        
+
         const values = assetTree.getData();
         const nrOfAlbums = values.length;
         for (var i=0; i<nrOfAlbums; i++) {
@@ -54,17 +54,17 @@ export const IndexBuilder = class {
                     <hr>
                     <h2>My Photo Albums</h2>
                 </header>
-                
+
                 <section class="content">
                 <div class=container>
                     <ul>${this.albums}</ul>
                 </div>
-            
+
                 <div class="container">
                     <div class="column-6">
                     <div class="footer">
                         <hr>
-                        <p>Copyright 2020 by <a href="https://www.zsurzsalaszlo.com/">Laszlo-Andras Zsurzsa</a>. All Rights Reserved.</p>
+                        <p>Copyright 2021 by <a href="https://www.zsurzsalaszlo.com/">Laszlo-Andras Zsurzsa</a>. All Rights Reserved.</p>
                     </div>
                     </div>
                 </div>

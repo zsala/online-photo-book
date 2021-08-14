@@ -12,12 +12,12 @@
         init() {
             application.log('Starting initialization ...');
             const imgs = document.getElementsByClassName('tile__image');
-            
+
             let observer = new IntersectionObserver(this.imageIntersected, this.observerConfig);
-        
-            application.log(imgs)
-            imgs.forEach( image => {
-               observer.observe(image); 
+
+            application.log(imgs);
+            Array.from(imgs).forEach( image => {
+               observer.observe(image);
             });
         },
 
