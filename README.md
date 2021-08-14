@@ -19,9 +19,9 @@ Focus of the project is to be as pragmatical as possible in sense of storage and
 - [ ] (multi) User handling logic
 - [ ] Mobile / Desktop optimization + Pagespeed optimizations
 
-# Missing enhancments
+# Missing enhancements
 - [ ] JS optimization: minify and bundle js for production ready code, consistent class / id namings for js related logic
-- [ ] CSS optimizatin: cleanup css (one naming convention), minify and bundle correctly
+- [ ] CSS optimization: cleanup css (one naming convention), minify and bundle correctly
 - [x] Performance optimization: lazy loading for images, optimize image resolution based on user screen
 - [ ] Introduce consistent versioning of the project and road-map
 - [ ] Conceptualize and document the development of the project (tbd)
